@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  firebase_homework
-//
-//  Created by Максим Минаков on 11.07.2026.
-//
-
 import SwiftUI
 
 struct ContentView: View {
