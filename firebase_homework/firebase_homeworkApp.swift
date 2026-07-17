@@ -31,7 +31,7 @@ struct firebase_homeworkApp: App {
         } else if isLogin {
             return .authenticated
         } else {
-            return .authenticated
+            return .onboarding
         }
     }
       
