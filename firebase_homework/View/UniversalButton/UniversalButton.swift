@@ -3,10 +3,12 @@ import SwiftUI
 
 
 struct UniversalButton: View {
+    var textButton: String
     var image: String
     var buttonAction: () -> Void
     
-    init(image: String, buttonAction: @escaping () -> Void) {
+    init(textButton: String, image: String, buttonAction: @escaping () -> Void) {
+        self.textButton = textButton
         self.image = image
         self.buttonAction = buttonAction
     }
@@ -16,7 +18,7 @@ struct UniversalButton: View {
             buttonAction()
         } label: {
             HStack(spacing: 36) {
-                Text(Constants.getStarted)
+                Text(textButton)
                     .appTitleFont(size: 18)
                 
                 Image(systemName: image)

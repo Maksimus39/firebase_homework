@@ -5,6 +5,7 @@ import FirebaseCore
 enum AppState {
     case onboarding
     case authenticated
+    case mainApp
 }
 
 
@@ -24,7 +25,15 @@ struct firebase_homeworkApp: App {
     @StateObject var viewModel = DataViewModel()
     @AppStorage(Constants.userDefaults) private var isLogin = false
     
-    private var appState: AppState { isLogin ? .authenticated : .onboarding }
+    private var appState: AppState {
+        if viewModel.currentUser != nil {
+            return .mainApp
+        } else if isLogin {
+            return .authenticated
+        } else {
+            return .authenticated
+        }
+    }
       
     
     var body: some Scene {
@@ -32,6 +41,7 @@ struct firebase_homeworkApp: App {
             switch appState {
             case .onboarding: OnboardingView()
             case .authenticated: ContentView().environmentObject(viewModel)
+            case .mainApp: EmailAuthPageView().environmentObject(viewModel)
             }
         }
     }

@@ -46,7 +46,7 @@ struct ContentView: View {
                             }
                             .padding(.horizontal, 16)
                             .padding(.vertical, 14)
-                            .background(Color.white.opacity(0.08))
+                            .background(.white.opacity(0.08))
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                         }
                         .buttonStyle(.plain)
@@ -56,14 +56,7 @@ struct ContentView: View {
                 }
                 .padding(.top, 8)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(
-                LinearGradient(
-                    colors: [.appWhite, .appDark],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
+            .applyGradientBackground()
             .navigationDestination(for: AuthRoute.self) { route in
                 switch route {
                 case .email:
@@ -75,8 +68,22 @@ struct ContentView: View {
                 }
             }
             .navigationTitle(Constants.login)
-            
         }
+    }
+}
+
+
+extension View {
+    func applyGradientBackground() -> some View {
+        self
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                LinearGradient(
+                    colors: [.appWhite, .appDark],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
     }
 }
 

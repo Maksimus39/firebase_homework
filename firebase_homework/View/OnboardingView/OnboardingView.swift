@@ -51,7 +51,7 @@ struct OnboardingView: View {
             
             Spacer()
             
-            UniversalButton(image: Constants.buttonOnboardingImage) {
+            UniversalButton(textButton: Constants.getStarted, image: Constants.buttonOnboardingImage) {
                 isLogin = true
             }
             .padding()
