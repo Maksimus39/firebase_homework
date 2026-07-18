@@ -1,10 +1,9 @@
 import SwiftUI
 
-
-
-
 struct EmailAuthPage: View {
-    @EnvironmentObject var viewModel: DataViewModel
+    @StateObject private var viewModel = AuthViewModel()
+    @EnvironmentObject var sessionManager: SessionManager
+    
     @AppStorage(Constants.userDefaults) private var isLogin = false
     @State private var isRegisterMode = true
     
@@ -14,29 +13,47 @@ struct EmailAuthPage: View {
                 .font(.title2)
                 .fontWeight(.bold)
 
-            TextField("Email", text: $viewModel.email)
-                .textFieldStyle(.roundedBorder)
-                .keyboardType(.emailAddress)
-                .autocapitalization(.none)
+            VStack(alignment: .leading, spacing: 4) {
+                TextField("Email", text: $viewModel.email)
+                    .textFieldStyle(.roundedBorder)
+                    .keyboardType(.emailAddress)
+                    .autocapitalization(.none)
+                
+                if let error = viewModel.emailError {
+                    Text(error)
+                        .font(.caption)
+                        .foregroundColor(.red)
+                }
+            }
             
-            SecureField("Пароль", text: $viewModel.password)
-                .textFieldStyle(.roundedBorder)
+            VStack(alignment: .leading, spacing: 4) {
+                SecureField("Пароль", text: $viewModel.password)
+                    .textFieldStyle(.roundedBorder)
+                
+                if let error = viewModel.passwordError {
+                    Text(error)
+                        .font(.caption)
+                        .foregroundColor(.red)
+                }
+            }
             
             if let error = viewModel.errorMessage {
                 Text(error)
                     .foregroundColor(.red)
                     .font(.caption)
+                    .multilineTextAlignment(.center)
             }
             
             UniversalButton(textButton: isRegisterMode ? Constants.signUpButton : Constants.LogIn, image: Constants.buttonOnboardingImage) {
                 Task {
                     if isRegisterMode {
-                        await viewModel.registerUser()
+                        await viewModel.register()
                     } else {
-                        await viewModel.loginUser()
+                        await viewModel.login()
                     }
                     
-                    if viewModel.isRegistrationSuccessful {
+                   
+                    if sessionManager.isAuthenticated {
                         isLogin = true
                     }
                 }
@@ -51,7 +68,7 @@ struct EmailAuthPage: View {
             
             Button(isRegisterMode ? Constants.signInPrompt : Constants.signUpPrompt) {
                 isRegisterMode.toggle()
-                viewModel.clearError()
+                viewModel.clearErrors()
             }
             .font(.caption)
             .foregroundStyle(.blue)
@@ -59,5 +76,20 @@ struct EmailAuthPage: View {
         .padding(24)
         .applyGradientBackground()
         .navigationTitle(isRegisterMode ? Constants.signUpTitle : Constants.signInTitle)
+    }
+}
+
+
+extension View {
+    func applyGradientBackground() -> some View {
+        self
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                LinearGradient(
+                    colors: [.appWhite, .appDark],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
     }
 }

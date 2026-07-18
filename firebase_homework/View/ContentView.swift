@@ -1,12 +1,10 @@
 import SwiftUI
 
-
 enum AuthRoute: Hashable {
     case email
     case google
     case apple
 }
-
 
 struct AuthMethod: Identifiable {
     let id: AuthRoute
@@ -21,8 +19,6 @@ struct AuthMethod: Identifiable {
 }
 
 struct ContentView: View {
-    @EnvironmentObject var viewModel: DataViewModel
-    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -70,25 +66,4 @@ struct ContentView: View {
             .navigationTitle(Constants.login)
         }
     }
-}
-
-
-extension View {
-    func applyGradientBackground() -> some View {
-        self
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(
-                LinearGradient(
-                    colors: [.appWhite, .appDark],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
-    }
-}
-
-
-#Preview {
-    ContentView()
-        .environmentObject(DataViewModel())
 }

@@ -22,27 +22,21 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct firebase_homeworkApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject var viewModel = DataViewModel()
+    @StateObject private var sessionManager = SessionManager()
     @AppStorage(Constants.userDefaults) private var isLogin = false
-    
-    private var appState: AppState {
-        if viewModel.currentUser != nil {
-            return .mainApp
-        } else if isLogin {
-            return .authenticated
-        } else {
-            return .onboarding
-        }
-    }
-      
     
     var body: some Scene {
         WindowGroup {
-            switch appState {
-            case .onboarding: OnboardingView()
-            case .authenticated: ContentView().environmentObject(viewModel)
-            case .mainApp: EmailAuthPageView().environmentObject(viewModel)
+            Group {
+                if sessionManager.isAuthenticated {
+                    EmailAuthPageView()
+                } else if isLogin {
+                    ContentView()
+                } else {
+                    OnboardingView()
+                }
             }
+            .environmentObject(sessionManager) 
         }
     }
 }
