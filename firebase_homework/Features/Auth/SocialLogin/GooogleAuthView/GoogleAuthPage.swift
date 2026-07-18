@@ -8,6 +8,9 @@ struct GoogleAuthPage: View {
                 .font(.system(size: 60))
             Text(Constants.googleTitle)
                 .font(.title2)
+            Text("Работаем над реализацией")
+                .font(.title)
+                .foregroundColor(.red)
             UniversalButton(textButton: Constants.continueButton, image: Constants.buttonOnboardingImage) {
                 print("Activate")
             }

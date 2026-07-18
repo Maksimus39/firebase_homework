@@ -15,11 +15,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		855BC8F7300207A100DA250F /* firebase_homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firebase_homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		855BC8F7300207A100DA250F /* firebase_homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = firebase_homework.app; path = "/Users/application/IOS/firebase_homework/build/Debug-iphoneos/firebase_homework.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		855BC8F9300207A100DA250F /* firebase_homework */ = {
+		85F62DB5300C0BDA009AE5CD /* firebase_homework */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = firebase_homework;
 			sourceTree = "<group>";
@@ -45,25 +45,8 @@
 		855BC8EE300207A100DA250F = {
 			isa = PBXGroup;
 			children = (
-				855BC8F9300207A100DA250F /* firebase_homework */,
-				855EAB8630042E4C0000DF18 /* Frameworks */,
-				855BC8F8300207A100DA250F /* Products */,
+				85F62DB5300C0BDA009AE5CD /* firebase_homework */,
 			);
-			sourceTree = "<group>";
-		};
-		855BC8F8300207A100DA250F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				855BC8F7300207A100DA250F /* firebase_homework.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		855EAB8630042E4C0000DF18 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,7 +65,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				855BC8F9300207A100DA250F /* firebase_homework */,
+				85F62DB5300C0BDA009AE5CD /* firebase_homework */,
 			);
 			name = firebase_homework;
 			packageProductDependencies = (
@@ -124,7 +107,7 @@
 				855EAB8530042E130000DF18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 855BC8F8300207A100DA250F /* Products */;
+			productRefGroup = 855BC8EE300207A100DA250F;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

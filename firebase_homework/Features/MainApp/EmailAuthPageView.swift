@@ -9,6 +9,7 @@ struct EmailAuthPageView: View {
         VStack(spacing: 20) {
             Text("Привет, \(sessionManager.currentUser?.email ?? "User")!")
             
+            Spacer()
             Button(role: .destructive) {
                 sessionManager.logout()
                 isLogin = false

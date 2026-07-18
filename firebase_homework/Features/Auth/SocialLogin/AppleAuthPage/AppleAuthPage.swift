@@ -8,6 +8,9 @@ struct AppleAuthPage: View {
                 .font(.system(size: 60))
             Text(Constants.signInWithAppleID)
                 .font(.title2)
+            Text("Работаем над реализацией")
+                .font(.title)
+                .foregroundColor(.red)
             UniversalButton(textButton: Constants.continuee, image: Constants.buttonOnboardingImage) {
                 print("Activate")
             }
