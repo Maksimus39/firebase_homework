@@ -1,7 +1,7 @@
 import Foundation
 
 
-class ValidationService: ValidationServiceProtocol {
+final class ValidationService: ValidationServiceProtocol {
     static let shared = ValidationService()
     
     func validate(email: String) -> Result<String, ValidationError> {

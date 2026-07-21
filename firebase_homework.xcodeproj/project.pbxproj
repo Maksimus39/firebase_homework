@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		855BC8F7300207A100DA250F /* firebase_homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = firebase_homework.app; path = "/Users/application/IOS/firebase_homework/build/Debug-iphoneos/firebase_homework.app"; sourceTree = "<absolute>"; };
+		858AB24F300F690C005A0DE9 /* firebase_homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firebase_homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -46,6 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				85F62DB5300C0BDA009AE5CD /* firebase_homework */,
+				858AB24F300F690C005A0DE9 /* firebase_homework.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,7 +77,7 @@
 				855EAB8F30042E650000DF18 /* FirebaseStorage */,
 			);
 			productName = firebase_homework;
-			productReference = 855BC8F7300207A100DA250F /* firebase_homework.app */;
+			productReference = 858AB24F300F690C005A0DE9 /* firebase_homework.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

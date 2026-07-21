@@ -3,7 +3,7 @@ import Combine
 
 
 
-class AuthViewModel: ObservableObject {
+final class AuthViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var isLoading = false

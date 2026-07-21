@@ -2,7 +2,7 @@ import Foundation
 import FirebaseAuth
 
 
-class SignInManager: SignInManagerProtocol {
+final class SignInManager: SignInManagerProtocol {
     func signInWithEmailandPassword(email: String, password: String) async throws -> UserCredentials {
         let result = try await Auth.auth().signIn(withEmail: email, password: password)
         

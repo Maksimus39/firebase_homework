@@ -2,7 +2,7 @@ import Foundation
 import Combine
 import FirebaseAuth
 
-class SessionManager: ObservableObject {
+final class SessionManager: ObservableObject {
     @Published var currentUser: UserCredentials?
     @Published var isAuthenticated: Bool = false
     

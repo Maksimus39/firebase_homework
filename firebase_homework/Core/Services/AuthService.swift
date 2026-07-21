@@ -2,7 +2,7 @@ import Foundation
 import FirebaseAuth
 
 
-class AuthService: AuthServiceProtocol {
+final class AuthService: AuthServiceProtocol {
     private let registrationManager: RegistrationManagerProtocol
     private let signInManager: SignInManagerProtocol
     
